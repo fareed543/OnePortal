@@ -1,0 +1,19 @@
+<form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+  <div *ngFor="let field of formConfig.fields" class="form-field">
+    <label>{{ field.label }}</label>
+
+    <ng-container [ngSwitch]="field.type">
+      <input *ngSwitchCase="'text'" [formControlName]="field.name" [placeholder]="field.placeholder">
+      <input *ngSwitchCase="'email'" type="email" [formControlName]="field.name" [placeholder]="field.placeholder">
+      <select *ngSwitchCase="'select'" [formControlName]="field.name">
+        <option *ngFor="let opt of field.options" [value]="opt">{{ opt }}</option>
+      </select>
+    </ng-container>
+
+    <small class="error" *ngIf="isInvalid(field.name)">
+      {{ getErrorMessage(field.name) }}
+    </small>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
