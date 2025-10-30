@@ -1,0 +1,8 @@
+<div class="page-builder">
+  <h2>{{ pageConfig?.title }}</h2>
+
+  <div *ngFor="let form of pageConfig?.forms">
+    <app-dynamic-form [formConfig]="form" (formSubmit)="onFormSubmit($event)">
+    </app-dynamic-form>
+  </div>
+</div>
