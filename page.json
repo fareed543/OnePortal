@@ -1,0 +1,17 @@
+{
+  "pageId": "employeeOnboarding",
+  "title": "Employee Onboarding",
+  "layout": "2-column",
+  "sections": [
+    {
+      "type": "form",
+      "title": "Personal Details",
+      "formId": "personalDetailsForm"
+    },
+    {
+      "type": "table",
+      "title": "Employee List",
+      "dataSource": "api/employees"
+    }
+  ]
+}
