@@ -1,8 +1,25 @@
 <div class="page-builder">
-  <h2>{{ pageConfig?.title }}</h2>
+  <h2>Page Builder</h2>
 
-  <div *ngFor="let form of pageConfig?.forms">
-    <app-dynamic-form [formConfig]="form" (formSubmit)="onFormSubmit($event)">
-    </app-dynamic-form>
+  <!-- Add sections to page -->
+  <div *ngFor="let section of pageConfig.sections; let i = index" class="section-item">
+    <select [(ngModel)]="section.type">
+      <option value="form">Form</option>
+      <option value="table">Table</option>
+      <option value="chart">Chart</option>
+    </select>
+
+    <input [(ngModel)]="section.title" placeholder="Section Title" />
+
+    <button (click)="editSection(section)">✏️ Edit</button>
+    <button (click)="removeSection(i)">🗑️</button>
   </div>
+
+  <button (click)="addSection()">➕ Add Section</button>
+
+  <button (click)="savePage()">💾 Save Page</button>
+
+  <hr />
+  <h3>Live Preview</h3>
+  <app-page-renderer [pageConfig]="pageConfig"></app-page-renderer>
 </div>
