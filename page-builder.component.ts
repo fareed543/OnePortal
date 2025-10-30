@@ -1,24 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
 import { PageBuilderService } from '../services/page-builder.service';
 
 @Component({
   selector: 'app-page-builder',
   templateUrl: './page-builder.component.html'
 })
-export class PageBuilderComponent implements OnInit {
-  pageConfig: any;
+export class PageBuilderComponent {
+  pageConfig: any = {
+    title: 'New Page',
+    sections: []
+  };
 
-  constructor(private route: ActivatedRoute, private pageBuilderService: PageBuilderService) {}
+  constructor(private pageService: PageBuilderService) {}
 
-  ngOnInit() {
-    const pageId = this.route.snapshot.paramMap.get('id');
-    this.pageBuilderService.getPageConfig(pageId).subscribe(config => {
-      this.pageConfig = config;
-    });
+  addSection() {
+    this.pageConfig.sections.push({ type: 'form', title: 'New Section' });
   }
 
-  onFormSubmit(data: any) {
-    console.log('Form submitted:', data);
+  removeSection(index: number) {
+    this.pageConfig.sections.splice(index, 1);
+  }
+
+  editSection(section: any) {
+    // open form builder or table builder modal based on section.type
+  }
+
+  savePage() {
+    this.pageService.savePageConfig(this.pageConfig).subscribe(() => {
+      alert('Page configuration saved!');
+    });
   }
 }
