@@ -1,0 +1,28 @@
+menu = [
+  {
+    id: 1,
+    title: 'HR',
+    expanded: true,
+    children: [
+      {
+        id: 11,
+        title: 'Leave Management',
+        expanded: false,
+        children: [
+          { id: 111, title: 'Apply Leave', route: '/hr/leave/apply' },
+          { id: 112, title: 'Leave History', route: '/hr/leave/history' },
+        ],
+      },
+      { id: 12, title: 'Payroll', route: '/hr/payroll' },
+    ],
+  },
+  {
+    id: 2,
+    title: 'IT',
+    expanded: false,
+    children: [
+      { id: 21, title: 'Assets', route: '/it/assets' },
+      { id: 22, title: 'Tickets', route: '/it/tickets' },
+    ],
+  },
+];
