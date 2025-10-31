@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-auth-layout',
   imports: [RouterModule],
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss',
+  templateUrl: './auth-layout.component.html',
+  styleUrl: './auth-layout.component.scss',
   standalone: true,
 })
-export class SidebarComponent {
+export class AuthLayoutComponent {
 
 }
