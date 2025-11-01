@@ -3,6 +3,8 @@ import { LayoutComponent } from './shared/components/layout/layout.component';
 import { AuthLayoutComponent } from './shared/components/auth-layout/auth-layout.component';
 
 export const routes: Routes = [
+  { path : '', redirectTo : 'login', pathMatch:'full' },
+
   // {
   //   path : '',
   //   component : LayoutComponent,
@@ -32,7 +34,6 @@ export const routes: Routes = [
         },
     ]
   },
-  { path : '', redirectTo : 'login', pathMatch:'full' },
   
   { path: '**', redirectTo: 'login' }
 
