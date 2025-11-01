@@ -13,11 +13,7 @@ export class SidebarComponent {
 
   constructor(private renderer: Renderer2, private router: Router) {}
 
-  onMenuItemClick() { // route: string
-    // Navigate to the selected route
-    // this.router.navigateByUrl(route);
-
-    // Collapse the sidebar menu
+  onMenuItemClick() {
     const htmlEl = document.documentElement;
     this.renderer.removeClass(htmlEl, 'layout-menu-expanded');
   }

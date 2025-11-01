@@ -17,14 +17,11 @@ isMenuExpanded = false;
   const isExpanded = htmlEl.classList.contains('layout-menu-expanded');
 
   if (isExpanded) {
-    // collapse
     this.renderer.removeClass(htmlEl, 'layout-menu-expanded');
   } else {
-    // expand
     this.renderer.addClass(htmlEl, 'layout-menu-expanded');
   }
-
-  this.isMenuExpanded = !isExpanded; // keep in sync
+  this.isMenuExpanded = !isExpanded; 
 }
 
 }
