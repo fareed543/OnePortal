@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,4 +9,9 @@ import { RouterModule } from '@angular/router';
 })
 export class LoginComponent {
 
+  constructor(private router:Router){}
+  login(){
+    debugger;
+    this.router.navigateByUrl('/dashboard');
+  }
 }

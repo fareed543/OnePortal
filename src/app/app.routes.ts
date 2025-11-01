@@ -5,17 +5,7 @@ import { AuthLayoutComponent } from './shared/components/auth-layout/auth-layout
 export const routes: Routes = [
   { path : '', redirectTo : 'login', pathMatch:'full' },
 
-  // {
-  //   path : '',
-  //   component : LayoutComponent,
-  //   children : [
-  //     {
-  //       path: 'dashboard',
-  //       loadChildren: () =>
-  //         import('./dashboard/dashboard.module').then(m => m.DashboardModule)
-  //     }
-  //   ]
-  // },
+ 
   {
     path : '',
     component : AuthLayoutComponent,
@@ -32,6 +22,18 @@ export const routes: Routes = [
           path: 'forgot-password',
           loadChildren: () =>import('./auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule)
         },
+    ]
+  },
+
+  {
+    path : '',
+    component : LayoutComponent,
+    children : [
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+      }
     ]
   },
   

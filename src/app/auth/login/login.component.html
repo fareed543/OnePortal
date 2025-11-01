@@ -1,7 +1,7 @@
 <h4 class="mb-2">Welcome to Sneat! 👋</h4>
               <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
-              <form id="formAuthentication" class="mb-3">
+              <form  class="mb-3">
                 <div class="mb-3">
                   <label for="email" class="form-label">Email or Username</label>
                   <input
@@ -39,7 +39,7 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <button [routerLink]="['/dashboard']" class="btn btn-primary d-grid w-100" type="button">Sign in</button>
+                  <button (click)="login()" class="btn btn-primary d-grid w-100" type="button">Sign in</button>
                 </div>
               </form>
 
