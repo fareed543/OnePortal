@@ -33,6 +33,11 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: () =>
           import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'developer',
+        loadChildren: () =>
+          import('./developer/developer.module').then(m => m.DeveloperModule)
       }
     ]
   },
