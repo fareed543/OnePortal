@@ -26,13 +26,28 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/assets" 
             ],
             "styles": [
+              "node_modules/boxicons/css/boxicons.min.css",
+              "src/assets/vendor/css/core.css",
+              "src/assets/vendor/css/theme-default.css",
+              "src/assets/css/demo.css",
+              "src/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css",
+              
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/vendor/libs/jquery/jquery.js",
+              "src/assets/vendor/libs/popper/popper.js",
+              "src/assets/vendor/js/bootstrap.js",
+              "src/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js",
+              "src/assets/vendor/js/menu.js",
+              "src/assets/js/main.js",
+              "src/assets/js/dashboards-analytics.js",
+              "src/assets/vendor/js/helpers.js",
+              "src/assets/js/config.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -100,5 +115,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
