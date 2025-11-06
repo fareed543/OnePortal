@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
+import { LayoutComponent } from './shared/layout/layout.component';
 
 
 export const routes: Routes = [
@@ -26,22 +27,22 @@ export const routes: Routes = [
     ]
   },
 
-  // {
-  //   path : '',
-  //   component : LayoutComponent,
-  //   children : [
-  //     {
-  //       path: 'dashboard',
-  //       loadChildren: () =>
-  //         import('./dashboard/dashboard.module').then(m => m.DashboardModule)
-  //     },
-  //     {
-  //       path: 'developer',
-  //       loadChildren: () =>
-  //         import('./developer/developer.module').then(m => m.DeveloperModule)
-  //     }
-  //   ]
-  // },
+  {
+    path : '',
+    component : LayoutComponent,
+    children : [
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'developer',
+        loadChildren: () =>
+          import('./developer/developer.module').then(m => m.DeveloperModule)
+      }
+    ]
+  },
   
   { path: '**', redirectTo: 'login' }
 
