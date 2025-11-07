@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { LayoutComponent } from './layout/layout.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,7 +20,8 @@ import { LayoutComponent } from './layout/layout.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }
