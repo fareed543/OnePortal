@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-auth-layout',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./auth-layout.component.scss']
 })
 export class AuthLayoutComponent {
+appName = environment.appName;
 
 }

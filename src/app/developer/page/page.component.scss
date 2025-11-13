@@ -1,45 +1,18 @@
 .page-tree {
-  list-style: none;
-  padding-left: 10px;
-  font-family: Arial, sans-serif;
+  width: 100%;
 }
 
-.page-node {
-  display: flex;
-  align-items: center;
-  margin: 5px 0;
-  gap: 6px;
+.page-node-wrapper {
+  border-left: 2px solid #e0e0e0;
+  margin-left: 10px;
 }
 
-.toggle-btn {
-  width: 24px;
-  height: 24px;
-  border: 1px solid #888;
-  background: #f9f9f9;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 4px;
-  font-weight: bold;
+.page-node-wrapper .col-12 {
+  background: #f8f9fa;
+  border-radius: 6px;
 }
 
-.add-btn {
-  width: 24px;
-  height: 24px;
-  border: 1px solid #4caf50;
-  background: #e8f5e9;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 4px;
-  color: #388e3c;
-  font-weight: bold;
-}
-
-.page-title {
-  cursor: pointer;
-}
-
-.child-list {
-  padding-left: 20px;
-  border-left: 1px dashed #ccc;
-  margin-left: 8px;
+.page-node-wrapper .col-12:hover {
+  background: #eef3ff;
+  transition: 0.2s ease;
 }

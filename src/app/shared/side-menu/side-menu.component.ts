@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuService } from 'src/app/developer/menu/menu.service';
+import { environment } from 'src/environment/environment';
 
 
 interface MenuItem {
@@ -20,6 +21,8 @@ interface MenuItem {
   styleUrls: ['./side-menu.component.scss']
 })
 export class SideMenuComponent implements OnInit {
+
+  appName = environment.appName;
 
   menuItems: MenuItem[] = [];
   constructor(private menuService: MenuService,

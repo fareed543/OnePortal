@@ -3,54 +3,100 @@
   <div class="flex-shrink-1 flex-grow-0 w-px-350 border-end container-p-x container-p-y">
     <div class="layout-example-sidebar layout-example-content-inner">
       <div class="page-tree-container">
-        <div class="top-toolbar">
-          <button class="add-btn" (click)="addNewPage()">+ Add New Page</button>
+
+        <div class="row">
+          <div class="col-12 text-end pt-3">
+            <button type="button" class="btn btn-sm btn-primary mb-1" (click)="addNewPage()">
+              + Add New Page
+            </button>
+          </div>
         </div>
 
-        <ul class="page-tree">
+
+
+
+        <div class="page-tree">
           <ng-container *ngFor="let item of pageItems">
-            <li>
-              <div class="page-node">
-                <button *ngIf="item.children?.length"
-                        class="toggle-btn"
-                        (click)="toggle(item)">
-                  {{ item.open ? '-' : '+' }}
+            <div class="page-node-wrapper">
+              <!-- Parent Page Row -->
+              <div class="col-12 d-flex align-items-center justify-content-between ps-sm-6 pt-2 py-sm-2">
+                <div class="d-flex align-items-center gap-2">
+                  <button *ngIf="item.children?.length" class="btn btn-sm btn-outline-secondary p-0 px-2"
+                    (click)="toggle(item)">
+                    {{ item.open ? '-' : '+' }}
+                  </button>
+                  <small class="fw-semibold" (click)="selectPage(item)" style="cursor:pointer;">
+                    {{ item.title || 'Untitled Page' }}
+                  </small>
+                </div>
+
+                <button type="button" class="btn btn-sm btn-primary mb-1" (click)="addNewPage(item)">
+                  + Add Child Page
                 </button>
-                <span class="page-title" (click)="selectPage(item)">{{ item.title || 'Untitled Page' }}</span>
-                <button class="add-btn" (click)="addNewPage(item)">+</button>
               </div>
 
-              <ul *ngIf="item.children?.length && item.open" class="child-list">
-                <ng-container *ngFor="let child of item.children">
-                  <li>
-                    <div class="page-node">
-                      <button *ngIf="child.children?.length"
-                              class="toggle-btn"
-                              (click)="toggle(child)">
-                        {{ child.open ? '-' : '+' }}
+              <div class="page-tree">
+                <ng-container *ngFor="let item of pageItems">
+                  <!-- Parent Node -->
+                  <div class="col-12 d-flex align-items-center justify-content-between ps-sm-6 pt-2 py-sm-2">
+                    <div class="d-flex align-items-center gap-2">
+                      <button *ngIf="item.children?.length" class="btn btn-sm btn-outline-secondary p-0 px-2"
+                        (click)="toggle(item)">
+                        {{ item.open ? '-' : '+' }}
                       </button>
-                      <span class="page-title" (click)="selectPage(child)">{{ child.title || 'Untitled Page' }}</span>
-                      <button class="add-btn" (click)="addNewPage(child)">+</button>
+
+                      <small class="fw-semibold" (click)="selectPage(item)" style="cursor:pointer;">
+                        {{ item.title || 'Untitled Page' }}
+                      </small>
                     </div>
 
-                    <ul *ngIf="child.children?.length && child.open" class="child-list">
-                      <ng-container *ngFor="let subChild of child.children">
-                        <li>
-                          <div class="page-node">
-                            <span class="page-title" (click)="selectPage(subChild)">
+                    <button type="button" class="btn btn-sm btn-primary mb-1" (click)="addNewPage(item)">
+                      + Add Child
+                    </button>
+                  </div>
+
+                  <!-- Child Pages -->
+                  <div *ngIf="item.children?.length && item.open" class="ps-4">
+                    <ng-container *ngFor="let child of item.children">
+                      <div class="col-12 d-flex align-items-center justify-content-between ps-sm-6 pt-2 py-sm-2">
+                        <div class="d-flex align-items-center gap-2">
+                          <button *ngIf="child.children?.length" class="btn btn-sm btn-outline-secondary p-0 px-2"
+                            (click)="toggle(child)">
+                            {{ child.open ? '-' : '+' }}
+                          </button>
+
+                          <small class="fw-semibold" (click)="selectPage(child)" style="cursor:pointer;">
+                            {{ child.title || 'Untitled Page' }}
+                          </small>
+                        </div>
+
+                        <button type="button" class="btn btn-sm btn-primary mb-1" (click)="addNewPage(child)">
+                          + Add Child
+                        </button>
+                      </div>
+
+                      <!-- Sub-Children -->
+                      <div *ngIf="child.children?.length && child.open" class="ps-4">
+                        <ng-container *ngFor="let subChild of child.children">
+                          <div class="col-12 d-flex align-items-center justify-content-between ps-sm-6 pt-2 py-sm-2">
+                            <small class="fw-semibold" (click)="selectPage(subChild)" style="cursor:pointer;">
                               {{ subChild.title || 'Untitled Page' }}
-                            </span>
-                            <button class="add-btn" (click)="addNewPage(subChild)">+</button>
+                            </small>
+
+                            <button type="button" class="btn btn-sm btn-primary mb-1" (click)="addNewPage(subChild)">
+                              + Add Child
+                            </button>
                           </div>
-                        </li>
-                      </ng-container>
-                    </ul>
-                  </li>
+                        </ng-container>
+                      </div>
+                    </ng-container>
+                  </div>
                 </ng-container>
-              </ul>
-            </li>
+              </div>
+
+            </div>
           </ng-container>
-        </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -83,7 +129,8 @@
 
           <div class="mb-3">
             <label>Short Description</label>
-            <textarea [(ngModel)]="selectedPage.shortDescription" name="shortDescription" class="form-control"></textarea>
+            <textarea [(ngModel)]="selectedPage.shortDescription" name="shortDescription"
+              class="form-control"></textarea>
           </div>
 
           <div class="mb-3">
