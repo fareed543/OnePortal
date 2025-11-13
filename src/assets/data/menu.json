@@ -9,6 +9,7 @@
     "icon": "bx bx-layout",
     "route": "/developer",
     "children": [
+      { "label": "Reactive Form", "route": "/developer/reactive-form" },
       { "label": "Menu", "route": "/developer/menu" },
       { "label": "Pages", "route": "/developer/page" },
       { "label": "Form", "route": "/developer/form" }

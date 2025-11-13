@@ -6,12 +6,17 @@ import { MenuComponent } from './menu/menu.component';
 import { PageComponent } from './page/page.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DeveloperComponent ,
     children : [
+        {
+          path: 'reactive-form',
+          component: ReactiveFormComponent 
+        },
         {
           path: 'menu',
           component: MenuComponent 
@@ -34,7 +39,8 @@ const routes: Routes = [
     DeveloperComponent,
     MenuComponent,
     PageComponent,
-    FormComponent
+    FormComponent,
+    ReactiveFormComponent
   ],
   imports: [
     CommonModule,
